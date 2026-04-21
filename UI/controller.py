@@ -8,14 +8,6 @@ class Controller:
         # the model, which implements the logic of the program and holds the data
         self._model = model
 
-    def handle_hello(self, e):
-        name = self._view.txt_name.value
-        if name is None or name == "":
-            self._view.create_alert("Inserire il nome")
-            return
-        self._view.txt_result.controls.append(ft.Text(f"Hello, {name}!"))
-        self._view.update_page()
-
     def fillanni(self):
         # for cod in self._model.getCodins():
         #     self._view.ddCodins.options.append(
@@ -24,7 +16,7 @@ class Controller:
 
         for a in self._model.getAnni():
             self._view.txt_anno.options.append(ft.dropdown.Option(
-                key=a,
+                key=a,    #key data on_click
                 text=str(a),
             ))
         self._view.txt_anno.on_change = self._choiceanno
@@ -53,11 +45,11 @@ class Controller:
                 )
             )
     def _scegliretailer(self, e):
-        self._retailer_id = e.control.value
+        self._retailer_id = e.control.value #e.control.data se metto data nel fill...
 
     def handle_topvendite(self,e):
         self._view.txt_result.controls.clear()
-        anno = getattr(self, "_anno", None)
+        anno = getattr(self, "_anno", None)   #che sarebbe la stessa cosa di inizializzare la variabile a none e poi darle il valore dopo
 
         # 2. Recupero brand (già gestito da _choicebrand)
         brand = getattr(self, "_brand", None)

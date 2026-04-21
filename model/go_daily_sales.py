@@ -8,7 +8,7 @@ class GoSales:
     Retailer_code: int
     Product_number: int
     Order_method_code: int
-    Date: str
+    Date: str #date da importare
     Quantity: float
     Unit_price: float
     Unit_sale_price: float

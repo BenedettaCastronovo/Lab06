@@ -13,7 +13,7 @@ class DAO:
 
         anni = []
         for row in cursor:
-            anni.append(row[0])
+            anni.append(row[0]) #ho selezionato solo gli ani, cioè un solo elemento
 
         cursor.close()
         cnx.close()
